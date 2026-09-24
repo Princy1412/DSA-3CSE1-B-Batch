@@ -3,54 +3,59 @@ using namespace std;
 
 int main()
 {
-    int n = 3;
+    int n;
+    cout << "Enter stack size: ";
+    cin >> n;
+
     int stack[n];
     int top = -1;
 
-    if (top == n - 1)
-        cout << "Stack is full" << endl;
-    else
-    {
-        stack[++top] = 10;
-        cout << "Placed: 10" << endl;
-        cout << "Current top: " << stack[top] << endl;
-    }
+    string choice;
+    int value;
 
-    if (top == n - 1)
-        cout << "Stack is full" << endl;
-    else
+    while (true)
     {
-        stack[++top] = 20;
-        cout << "Placed: 20" << endl;
-        cout << "Current top: " << stack[top] << endl;
-    }
+        cout << "\nEnter operation (push/pop/exit): ";
+        cin >> choice;
 
-    if (top == n - 1)
-        cout << "Stack is full" << endl;
-    else
-    {
-        stack[++top] = 30;
-        cout << "Placed: 30" << endl;
-        cout << "Current top: " << stack[top] << endl;
-    }
+        if (choice == "push")
+        {
+            if (top == n - 1)
+            {
+                cout << "Stack is full" << endl;
+            }
+            else
+            {
+                cout << "Enter value: ";
+                cin >> value;
 
-    if (top == n - 1)
-        cout << "Stack is full" << endl;
-    else
-    {
-        stack[++top] = 40;
-        cout << "Placed: 40" << endl;
-    }
+                stack[++top] = value;
 
-    if (top == -1)
-        cout << "Stack is empty" << endl;
-    else
-    {
-        cout << "Taken: " << stack[top] << endl;
-        top--;
+                cout << "Placed: " << value << endl;
+                cout << "Current top: " << stack[top] << endl;
+            }
+        }
+        else if (choice == "pop")
+        {
+            if (top == -1)
+            {
+                cout << "Stack is empty" << endl;
+            }
+            else
+            {
+                cout << "Taken: " << stack[top] << endl;
+                top--;
+            }
+        }
+        else if (choice == "exit")
+        {
+            break;
+        }
+        else
+        {
+            cout << "Invalid operation" << endl;
+        }
     }
-
-    cout << "Current top: " << stack[top] << endl;
 
     return 0;
 }

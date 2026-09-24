@@ -17,7 +17,7 @@ int main()
     cout << "Enter number of operations: ";
     cin >> q;
 
-    cout << "Enter operations (visit / back):" << endl;
+    cout << "Enter operations (visit / back / exit):" << endl;
 
     while (q--)
     {
@@ -39,6 +39,11 @@ int main()
                 top--;
                 cout << "Current Page: " << stack[top] << endl;
             }
+        }
+        else if (op == "exit")
+        {
+            cout << "Exiting..." << endl;
+            break;
         }
     }
 
